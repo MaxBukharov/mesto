@@ -10,3 +10,17 @@
   gap: 20px 17px;
   outline: 5px solid red;
 }
+
+@media screen and (max-width: 1050px) {
+  .elements {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 830px) {
+  .elements {
+    grid-template-columns: 1fr;
+    width: 100%;
+    max-width: 282px;
+  }
+}
