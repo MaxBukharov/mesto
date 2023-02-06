@@ -1,0 +1,11 @@
+.popup__container {
+  width: 430px;
+  height: 330;
+  background-color: white;
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

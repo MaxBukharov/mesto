@@ -7,6 +7,14 @@
   /* or 114% */
 
   color: #ffffff;
-  margin: 0 0 9px;
+  margin: 0 0 8px;
   padding: 0;
+}
+
+@media screen and (max-width: 745px) {
+  .profile__title {
+    font-size: 27px;
+    line-height: 33px;
+    margin: 8px 0 7px;
+  }
 }

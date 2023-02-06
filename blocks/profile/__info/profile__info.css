@@ -7,3 +7,11 @@
   position: relative;
   width: 336px;
 }
+
+@media screen and (max-width: 1045px) {
+  .profile__info {
+    text-align: center;
+    margin: 22px auto 0;
+    width: 100%;
+  }
+}
