@@ -1,0 +1,7 @@
+.popup__form-input {
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  margin: 0 0 30px;
+  width: 100%;
+  padding: 0;
+}
