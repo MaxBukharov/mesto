@@ -6,6 +6,9 @@ let popupName = popupForm.querySelector('#name');
 let popupDescription = popupForm.querySelector('#description');
 let profileName = document.querySelector('.profile__title');
 let profileDescription = document.querySelector('.profile__subtitle');
+let likeButton = document.querySelectorAll('#like');
+
+console.log(likeButton);
 
 popupButton.addEventListener('click', function () {
   popupContainer.classList.remove('popup_hidden');
@@ -25,3 +28,7 @@ function popupSubmit(evt) {
 }
 
 popupForm.addEventListener('submit', popupSubmit);
+
+likeButton.addEventListener('click', function () {
+  likeButton.classList.toggle('element__like-button_active');
+});
