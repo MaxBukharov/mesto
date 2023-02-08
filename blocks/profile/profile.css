@@ -14,8 +14,6 @@
 @media screen and (max-width: 1045px) {
   .profile {
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
     min-width: 282px;
     width: calc(100% - 100px * 2);
   }

@@ -1,4 +1,4 @@
-.popup__form-legend {
+.popup__form-title {
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -6,12 +6,12 @@
   line-height: 29px;
 
   color: #000000;
-  margin: 34px 0 50px;
+  margin: 25px 0 50px;
   /* width: 330px; */
 }
 
 @media screen and (max-width: 600px) {
-  .popup__form-legend {
+  .popup__form-title {
     font-size: 18px;
     line-height: 22px;
     margin: 25px 0 75px;
