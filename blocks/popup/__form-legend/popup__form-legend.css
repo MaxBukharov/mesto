@@ -6,7 +6,7 @@
   line-height: 29px;
 
   color: #000000;
-  margin: 34px 0 54px;
+  margin: 34px 0 50px;
   /* width: 330px; */
 }
 
@@ -14,7 +14,7 @@
   .popup__form-legend {
     font-size: 18px;
     line-height: 22px;
-    margin: 25px 0 54px;
+    margin: 25px 0 75px;
     width: 100%;
   }
 }

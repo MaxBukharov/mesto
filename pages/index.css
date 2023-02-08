@@ -31,3 +31,6 @@
 @import url(../blocks/popup/__form-legend/popup__form-legend.css);
 @import url(../blocks/popup/__form-input/popup__form-input.css);
 @import url(../blocks/popup/__form-save/popup__form-save.css);
+
+@import url(../blocks/footer/footer.css);
+@import url(../blocks/footer/__copyright/footer__copyright.css);

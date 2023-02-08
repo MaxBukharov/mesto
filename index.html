@@ -8,25 +8,24 @@
     <meta name="description" content="Проект о местах где Вы побывали" />
     <meta name="author" content="Максим Бухаров" />
     <meta name="keywords" content="путешествия, фото, лайки" />
-    <script src="./index.js" defer></script>
+    <script src="./scripts/index.js" defer></script>
   </head>
   <body>
     <div class="page">
       <header class="header">
-        <img class="header__logo" src="./images/Vector_logo.png" />
+        <img class="header__logo" src="./images/logo.svg" />
       </header>
       <main class="content">
         <section class="profile">
-          <img class="profile__avatar" src="./images/image__small.jpg" />
+          <img class="profile__avatar" src="./images/image__small.jpg" alt="Фото профиля" />
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <p class="profile__subtitle">Исследователь океана</p>
             <button class="profile__edit-button button-hover" name="button" type="submit">
-              <img class="button__image" src="./images/edit-Vector.png" />
+              <img class="button__image" src="./images/edit.svg" alt="Редактировать" />
             </button>
           </div>
-
-          <button class="profile__add-button" type="button"></button>
+          <button class="profile__add-button button-hover" type="button"></button>
         </section>
         <section class="elements">
           <article class="element">
@@ -78,14 +77,12 @@
         </section>
       </main>
       <footer class="footer">
-        <p class="footer__copyright"></p>
+        <p class="footer__copyright">© 2020 Mesto Russia</p>
       </footer>
       <div class="popup popup__hidden">
         <div class="popup__container">
-          <button class="popup__close button-hover" type="button">
-            <img src="./images/Close Icon.svg" />
-          </button>
-          <form class="popup__form" action="" method="get">
+          <button class="popup__close button-hover" type="button"></button>
+          <form class="popup__form" method="get">
             <legend class="popup__form-legend">Редактировать профиль</legend>
             <div class="popup__form-field">
               <input

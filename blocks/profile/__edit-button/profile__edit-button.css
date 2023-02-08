@@ -3,15 +3,18 @@
   height: 24px;
   margin: 0;
   padding: 0;
-  /* background-image: url(../../../images/edit-Vector.png); */
   border: 1px solid #ffffff;
-  /* background-size: 10px;
-  background-repeat: no-repeat;
-  background-color: transparent;
-  background-position: center; */
   position: absolute;
   top: 15px;
   right: 0;
   background-color: transparent;
   cursor: pointer;
+}
+
+@media screen and (max-width: 600px) {
+  .profile__edit-button {
+    width: 18px;
+    height: 18px;
+    margin: 0 19px 0 0;
+  }
 }

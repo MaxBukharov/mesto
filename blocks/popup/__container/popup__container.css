@@ -4,7 +4,7 @@
   /* height: 330px; */
   background-color: white;
   position: relative;
-  margin: 0 auto;
+  margin: 195px auto 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -24,5 +24,6 @@
   .popup__container {
     max-width: 282px;
     width: 100%;
+    margin: 123px auto 0;
   }
 }

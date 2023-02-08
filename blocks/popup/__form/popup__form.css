@@ -8,5 +8,6 @@
   .popup__form {
     margin: 0 22px 0;
     width: calc(100% - 22px * 2);
+    max-height: 322px;
   }
 }
