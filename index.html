@@ -8,6 +8,7 @@
     <meta name="description" content="Проект о местах где Вы побывали" />
     <meta name="author" content="Максим Бухаров" />
     <meta name="keywords" content="путешествия, фото, лайки" />
+    <script src="./index.js" defer></script>
   </head>
   <body>
     <div class="page">
@@ -20,7 +21,9 @@
           <div class="profile__info">
             <h1 class="profile__title">Жак-Ив Кусто</h1>
             <p class="profile__subtitle">Исследователь океана</p>
-            <button class="profile__edit-button" type="button"></button>
+            <button class="profile__edit-button button-hover" name="button" type="submit">
+              <img class="button__image" src="./images/edit-Vector.png" />
+            </button>
           </div>
 
           <button class="profile__add-button" type="button"></button>
@@ -77,19 +80,33 @@
       <footer class="footer">
         <p class="footer__copyright"></p>
       </footer>
-      <div class="popup">
+      <div class="popup popup__hidden">
         <div class="popup__container">
-          <button class="popup__close" type="button"></button>
+          <button class="popup__close button-hover" type="button">
+            <img src="./images/Close Icon.svg" />
+          </button>
           <form class="popup__form" action="" method="get">
             <legend class="popup__form-legend">Редактировать профиль</legend>
             <div class="popup__form-field">
-              <input class="popup__form-input" type="text" id="name" name="name" />
+              <input
+                class="popup__form-input"
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="off"
+              />
             </div>
             <div class="popup__form-field">
-              <input class="popup__form-input" type="text" id="description" name="description" />
+              <input
+                class="popup__form-input"
+                type="text"
+                id="description"
+                name="description"
+                autocomplete="off"
+              />
             </div>
             <div class="popup__form-field">
-              <input class="popup__form-save" type="submit" value="Сохранить" />
+              <input class="popup__form-save button-hover" type="submit" value="Сохранить" />
             </div>
           </form>
         </div>

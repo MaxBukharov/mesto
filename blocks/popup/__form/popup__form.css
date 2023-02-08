@@ -3,3 +3,10 @@
   padding: 0;
   width: calc(100% - 36px * 2);
 }
+
+@media screen and (max-width: 600px) {
+  .popup__form {
+    margin: 0 22px 0;
+    width: calc(100% - 22px * 2);
+  }
+}
