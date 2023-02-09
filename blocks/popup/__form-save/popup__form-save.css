@@ -18,15 +18,15 @@
   transition: opacity 0.5s ease-in-out;
 }
 
+.popup__form-save:hover {
+  opacity: 0.8;
+  transition: opacity 0.5s ease-in-out;
+}
+
 @media screen and (max-width: 600px) {
   .popup__form-save {
     min-height: 46px;
     font-size: 14px;
     line-height: 17px;
   }
-}
-
-.popup__form-save:hover {
-  opacity: 0.8;
-  transition: opacity 0.5s ease-in-out;
 }
