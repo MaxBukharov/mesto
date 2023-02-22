@@ -8,7 +8,6 @@
   justify-content: flex-start;
   align-items: center;
   position: relative;
-  /* max-height: 120px; */
 }
 
 @media screen and (max-width: 1045px) {

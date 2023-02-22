@@ -11,15 +11,15 @@ function popupSubmit(evt) {
   evt.preventDefault();
   profileName.textContent = popupName.value;
   profileDescription.textContent = popupDescription.value;
-  popupContainer.classList.add('popup_hidden');
+  popupClose();
 }
 
 function popupClose() {
-  popupContainer.classList.add('popup_hidden');
+  popupContainer.classList.remove('popup_opened');
 }
 
 editButton.addEventListener('click', function () {
-  popupContainer.classList.remove('popup_hidden');
+  popupContainer.classList.add('popup_opened');
   popupName.value = profileName.textContent;
   popupDescription.value = profileDescription.textContent;
 });
