@@ -1,0 +1,32 @@
+.popup-add__form-save {
+  width: 100%;
+  min-height: 50px;
+  margin: 15px 0 25px;
+  padding: 0;
+  background: #000000;
+  border-radius: 2px;
+  border: none;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #ffffff;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.popup-add__form-save:hover {
+  opacity: 0.8;
+  transition: opacity 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+  .popup-add__form-save {
+    min-height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}
