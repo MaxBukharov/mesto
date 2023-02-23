@@ -35,14 +35,15 @@
         ></button>
       </section>
       <section class="elements" aria-label="Галлерея">
-        <template id="cardTemplate"> 
+        <template id="cardTemplate">
           <article class="element">
             <button class="element__delete button-hover" id="deleteButton" type="button"></button>
-            <img class="element__image"  />
+            <img class="element__image" />
             <div class="element__info">
               <h2 class="element__title"></h2>
               <button class="element__like-button" type="button"></button>
             </div>
+          </article>
         </template>
       </section>
     </main>
@@ -86,7 +87,7 @@
           <input
             class="popup__form-input popup-add__form-input_card_name"
             type="text"
-            id="name"
+            id="inputName"
             name="name"
             autocomplete="off"
             placeholder="Название"
@@ -95,7 +96,7 @@
           <input
             class="popup__form-input popup-add__form-input_card_image"
             type="text"
-            id="description"
+            id="inputDescription"
             name="description"
             autocomplete="off"
             placeholder="Ссылка на картинку"
@@ -108,7 +109,7 @@
 
     <div class="image-popup">
       <div class="image-popup__container">
-        <img class="image-popup__picture">
+        <img class="image-popup__picture" />
         <figcaption class="image-popup__caption"></figcaption>
         <button class="image-popup__close button-hover" type="button"></button>
       </div>
