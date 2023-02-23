@@ -1,0 +1,9 @@
+.element__like-button_active {
+  background: url(../../../../images/like_active.svg);
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  border: none;
+  width: 22px;
+  height: 19px;
+}

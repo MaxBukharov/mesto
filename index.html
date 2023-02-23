@@ -35,52 +35,15 @@
         ></button>
       </section>
       <section class="elements" aria-label="Галлерея">
-        <!-- <article class="element">
-          <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус" />
-          <div class="element__info">
-            <h2 class="element__title">Эльбрус</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/kamchatka.jpg" alt="Камчатка" />
-          <div class="element__info">
-            <h2 class="element__title">Камчатка</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/kareliya.jpg" alt="Карелия" />
-          <div class="element__info">
-            <h2 class="element__title">Карелия</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img
-            class="element__image"
-            src="./images/rybachiy-poluostrov.jpg"
-            alt="Полуостров Рыбачий, Мурманская область"
-          />
-          <div class="element__info">
-            <h2 class="element__title">Рыбачий</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/kazan.jpg" alt="Казань" />
-          <div class="element__info">
-            <h2 class="element__title">Казань</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__image" src="./images/spb.jpg" alt="Санкт-Петербург" />
-          <div class="element__info">
-            <h2 class="element__title">Санкт-Петербург</h2>
-            <button class="element__like-button" type="button"></button>
-          </div>
-        </article> -->
+        <template id="cardTemplate"> 
+          <article class="element">
+            <button class="element__delete button-hover" id="deleteButton" type="button"></button>
+            <img class="element__image"  />
+            <div class="element__info">
+              <h2 class="element__title"></h2>
+              <button class="element__like-button" type="button"></button>
+            </div>
+        </template>
       </section>
     </main>
     <footer class="footer">
@@ -151,15 +114,7 @@
       </div>
 
     </div>
-    <template id="cardTemplate"> 
-      <article class="element">
-        <button class="element__delete button-hover" id="deleteButton" type="button"></button>
-        <img class="element__image"  />
-        <div class="element__info">
-          <h2 class="element__title"></h2>
-          <button class="element__like-button" type="button"></button>
-        </div>
-    </template> -->
+
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>
