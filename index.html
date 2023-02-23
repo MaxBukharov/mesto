@@ -35,7 +35,7 @@
         ></button>
       </section>
       <section class="elements" aria-label="Галлерея">
-        <article class="element">
+        <!-- <article class="element">
           <img class="element__image" src="./images/elbrus.jpg" alt="Эльбрус" />
           <div class="element__info">
             <h2 class="element__title">Эльбрус</h2>
@@ -80,7 +80,7 @@
             <h2 class="element__title">Санкт-Петербург</h2>
             <button class="element__like-button" type="button"></button>
           </div>
-        </article>
+        </article> -->
       </section>
     </main>
     <footer class="footer">
@@ -98,6 +98,7 @@
             id="name"
             name="name"
             autocomplete="off"
+            placeholder="Имя профиля"
           />
 
           <input
@@ -106,12 +107,59 @@
             id="description"
             name="description"
             autocomplete="off"
+            placeholder="Профессия"
           />
 
           <input class="popup__form-save" type="submit" value="Сохранить" />
         </form>
       </div>
     </div>
+    <div class="popup-add">
+      <div class="popup-add__container">
+        <button class="popup-add__close button-hover" type="button"></button>
+        <form class="popup-add__form" method="get" name="editform">
+          <h2 class="popup__form-title">Новое место</h2>
+
+          <input
+            class="popup__form-input popup-add__form-input_card_name"
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="off"
+            placeholder="Название"
+          />
+
+          <input
+            class="popup__form-input popup-add__form-input_card_image"
+            type="text"
+            id="description"
+            name="description"
+            autocomplete="off"
+            placeholder="Ссылка на картинку"
+          />
+
+          <input class="popup__form-save" type="submit" value="Создать" />
+        </form>
+      </div>
+    </div>
+
+    <div class="image-popup">
+      <div class="image-popup__container">
+        <img class="image-popup__picture">
+        <figcaption class="image-popup__caption"></figcaption>
+        <button class="image-popup__close button-hover" type="button"></button>
+      </div>
+
+    </div>
+    <template id="cardTemplate"> 
+      <article class="element">
+        <button class="element__delete button-hover" id="deleteButton" type="button"></button>
+        <img class="element__image"  />
+        <div class="element__info">
+          <h2 class="element__title"></h2>
+          <button class="element__like-button" type="button"></button>
+        </div>
+    </template> -->
     <script src="./scripts/index.js" defer></script>
   </body>
 </html>
