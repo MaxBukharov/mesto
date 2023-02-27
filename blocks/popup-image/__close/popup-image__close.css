@@ -1,4 +1,4 @@
-.image-popup__close {
+.popup-image__close {
   width: 32px;
   height: 32px;
   background-color: transparent;
@@ -16,7 +16,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .image-popup__close {
+  .popup-image__close {
     width: 20px;
     height: 20px;
     margin: -35px 0 0;

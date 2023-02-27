@@ -13,9 +13,9 @@ const profileName = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__subtitle');
 const addButton = document.querySelector('.profile__add-button');
 const imagePopup = document.querySelector('.popup-image');
-const bigImage = imagePopup.querySelector('.image-popup__picture');
-const imageCaption = imagePopup.querySelector('.image-popup__caption');
-const imagePopupClose = imagePopup.querySelector('.image-popup__close');
+const bigImage = imagePopup.querySelector('.popup-image__picture');
+const imageCaption = imagePopup.querySelector('.popup-image__caption');
+const imagePopupClose = imagePopup.querySelector('.popup-image__close');
 const cardTemplate = document.querySelector('#cardTemplate').content;
 
 const cardsGallery = document.querySelector('.elements');
@@ -30,7 +30,7 @@ const createCard = card => {
   cardImage.setAttribute('src', card.src);
   cardImage.setAttribute('alt', card.alt);
   cardImage.addEventListener('click', function () {
-    imagePopup.classList.add('image-popup_opened');
+    imagePopup.classList.add('popup-image_opened');
     bigImage.setAttribute('src', cardImage.src);
     imageCaption.textContent = card.name;
     imageCaption.setAttribute('alt', card.name);
@@ -87,7 +87,7 @@ addButton.addEventListener('click', function () {
 });
 
 imagePopupClose.addEventListener('click', function () {
-  imagePopup.classList.remove('image-popup_opened');
+  imagePopup.classList.remove('popup-image_opened');
 });
 
 popupCloseButton.addEventListener('click', function () {
