@@ -17,7 +17,6 @@ const bigImage = imagePopup.querySelector('.popup-image__picture');
 const imageCaption = imagePopup.querySelector('.popup-image__caption');
 const buttonCloseImagePopup = imagePopup.querySelector('.popup-image__close');
 const cardTemplate = document.querySelector('#cardTemplate').content;
-
 const cardsGallery = document.querySelector('.elements');
 
 const createCard = card => {
@@ -52,7 +51,7 @@ function submitEditProfileForm(evt) {
   evt.preventDefault();
   profileName.textContent = popupName.value;
   profileDescription.textContent = popupDescription.value;
-  openPopup(popupEditContainer);
+  closePopup(popupEditContainer);
 }
 
 function submitAddCardForm(evt) {
@@ -62,28 +61,28 @@ function submitAddCardForm(evt) {
   card.src = popupCardImage.value;
   card.alt = popupCardName.value;
   addCard(card);
-  openPopup(popupAddContainer);
-}
-
-function openPopup(popup) {
-  popup.classList.remove('popup_opened');
+  closePopup(popupAddContainer);
+  formAddCard.reset();
 }
 
 function closePopup(popup) {
+  popup.classList.remove('popup_opened');
+}
+
+function openPopup(popup) {
   popup.classList.add('popup_opened');
 }
 
 initialCards.forEach(addCard);
 
 buttonOpenEditProfileForm.addEventListener('click', function () {
-  closePopup(popupEditContainer);
+  openPopup(popupEditContainer);
   popupName.value = profileName.textContent;
   popupDescription.value = profileDescription.textContent;
 });
 
 buttonOpenAddCardForm.addEventListener('click', function () {
   popupAddContainer.classList.add('popup_opened');
-  formAddCard.reset();
 });
 
 buttonCloseImagePopup.addEventListener('click', function () {
@@ -91,11 +90,11 @@ buttonCloseImagePopup.addEventListener('click', function () {
 });
 
 buttonCloseEditProfilePopup.addEventListener('click', function () {
-  openPopup(popupEditContainer);
+  closePopup(popupEditContainer);
 });
 
 buttonCloseAddCardPopup.addEventListener('click', function () {
-  openPopup(popupAddContainer);
+  closePopup(popupAddContainer);
 });
 
 formEditProfile.addEventListener('submit', submitEditProfileForm);

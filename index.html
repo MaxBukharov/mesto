@@ -9,6 +9,7 @@
     <meta name="author" content="Максим Бухаров" />
     <meta name="keywords" content="путешествия, фото, лайки" />
     <script src="./scripts/constants.js" defer></script>
+    <script src="./scripts/validation.js" defer></script>
     <script src="./scripts/index.js" defer></script>
   </head>
   <body class="root">
@@ -55,7 +56,7 @@
     <div class="popup popup_edit-profile">
       <div class="popup__container">
         <button class="popup__close button-hover" type="button"></button>
-        <form class="popup__form" method="get" name="editform">
+        <form class="popup__form form" method="get" name="editform" id="editProfileForm" novalidate>
           <h2 class="popup__form-title">Редактировать профиль</h2>
 
           <input
@@ -65,8 +66,11 @@
             name="name"
             autocomplete="off"
             placeholder="Имя профиля"
+            minlength="2"
+            maxlength="40"
+            required
           />
-
+          <span class="popup__form-input-error popup__form-input-error_type_name"></span>
           <input
             class="popup__form-input popup__form-input_profile_description"
             type="text"
@@ -74,37 +78,44 @@
             name="description"
             autocomplete="off"
             placeholder="Профессия"
+            minlength="2"
+            maxlength="200"
+            required
           />
-
-          <input class="popup__form-save" type="submit" value="Сохранить" />
+          <span class="popup__form-input-error popup__form-input-error_type_description"></span>
+          <input class="popup__form-save popup__button" type="submit" value="Сохранить" />
         </form>
       </div>
     </div>
     <div class="popup popup-add">
       <div class="popup-add__container">
         <button class="popup-add__close button-hover" type="button"></button>
-        <form class="popup-add__form" method="get" name="editform">
+        <form class="popup-add__form form" method="get" name="editform">
           <h2 class="popup-add__form-title">Новое место</h2>
 
           <input
-            class="popup-add__form-input popup-add__form-input_card_name"
+            class="popup__form-input popup-add__form-input_card_name"
             type="text"
             id="inputName"
             name="name"
             autocomplete="off"
             placeholder="Название"
+            minlength="2"
+            maxlength="30"
+            required
           />
-
+          <span class="popup__form-input-error popup__form-input-error_type_description"></span>
           <input
-            class="popup-add__form-input popup-add__form-input_card_image"
-            type="text"
+            class="popup__form-input popup-add__form-input_card_image"
+            type="url"
             id="inputDescription"
             name="description"
             autocomplete="off"
             placeholder="Ссылка на картинку"
+            required
           />
-
-          <input class="popup-add__form-save" type="submit" value="Создать" />
+          <span class="popup__form-input-error popup__form-input-error_type_url"></span>
+          <input class="popup__form-save popup__button" type="submit" value="Создать" />
         </form>
       </div>
     </div>

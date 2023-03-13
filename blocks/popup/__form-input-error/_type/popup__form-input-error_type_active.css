@@ -1,0 +1,12 @@
+.popup__form-input-error_type_active {
+  display: block;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  max-height: 12px;
+  margin: -34px 0 15px;
+  padding: 7px 0 0;
+  color: #ff0000;
+}

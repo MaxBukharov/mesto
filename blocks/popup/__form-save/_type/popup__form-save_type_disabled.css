@@ -1,0 +1,17 @@
+.popup__form-save_type_disabled {
+  width: 100%;
+  min-height: 50px;
+  margin: 20px 0 25px;
+  padding: 0;
+  background: transparent;
+  border-radius: 2px;
+  border: 1px solid #000000;
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+  color: #000000;
+  opacity: 0.2;
+}
