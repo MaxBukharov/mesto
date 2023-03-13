@@ -2,11 +2,19 @@ const setEventListeners = (
   formInputlist,
   errorClassTemplate,
   errorClassActive,
-  editButtonDisabled
+  editButtonDisabled,
+  submitButtonSelector
 ) => {
-  formInputList.forEach(input => {
+  formInputlist.forEach(input => {
     input.addEventListener('input', function (evt) {
-      checkInputValidity(evt.target, errorClassTemplate, errorClassActive, editButtonDisabled);
+      console.log('Input is listened!');
+      checkInputValidity(
+        evt.target,
+        errorClassTemplate,
+        errorClassActive,
+        editButtonDisabled,
+        submitButtonSelector
+      );
     });
   });
 };
@@ -21,7 +29,7 @@ const hideError = (errorTextElement, errorClassActive) => {
   errorTextElement.textContent = '';
 };
 
-const editButtonStateDisabled = editButtonDisabled => {
+const editButtonStateDisabled = (editButtonDisabled, submitButtonSelector) => {
   document.querySelector(submitButtonSelector).classList.add(editButtonDisabled);
   document.querySelector(submitButtonSelector).classList.remove('popup__form-save');
 };
@@ -30,27 +38,41 @@ const checkInputValidity = (
   formInput,
   errorClassTemplate,
   errorClassActive,
-  editButtonDisabled
+  editButtonDisabled,
+  submitButtonSelector
 ) => {
   const errorTextElement = document.querySelector(`${errorClassTemplate}${formInput.name}`);
   console.log(errorTextElement);
   if (!formInput.validity.valid) {
     showError(errorTextElement, formInput.validationMessage, errorClassActive);
-    editButtonStateDisabled(editButtonDisabled);
+    editButtonStateDisabled(editButtonDisabled, submitButtonSelector);
   } else {
     hideError(errorTextElement, errorClassActive);
   }
 };
 
 const enableFormEditValidation = config => {
-  const form = document.querySelectorAll(config.formSelector);
-  const formInputList = form.querySelectorAll(config.inputListSelector);
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  console.log(formList);
+  formList.forEach(form => {
+    form.addEventListener('submit', evt => {
+      evt.preventDefault();
+      console.log('Submit is listened!');
+    });
+  });
+
+  const formInputList = Array.from(document.querySelectorAll(config.inputListSelector));
+  console.log(formInputList);
+
+  // const form = document.querySelectorAll(config.formSelector);
+  // const formInputList = form.querySelectorAll(config.inputListSelector);
 
   setEventListeners(
     formInputList,
     config.errorClassTemplate,
     config.errorClassActive,
-    config.editButtonDisabled
+    config.editButtonDisabled,
+    config.submitButtonSelector
   );
 };
 

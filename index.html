@@ -62,7 +62,7 @@
           <input
             class="popup__form-input popup__form-input_profile_name"
             type="text"
-            id="name"
+            id="inputProfileName"
             name="name"
             autocomplete="off"
             placeholder="Имя профиля"
@@ -74,7 +74,7 @@
           <input
             class="popup__form-input popup__form-input_profile_description"
             type="text"
-            id="description"
+            id="inputProfileDescription"
             name="description"
             autocomplete="off"
             placeholder="Профессия"
@@ -96,20 +96,22 @@
           <input
             class="popup__form-input popup-add__form-input_card_name"
             type="text"
-            id="inputName"
-            name="name"
+            id="inputCardName"
+            name="card-description"
             autocomplete="off"
             placeholder="Название"
             minlength="2"
             maxlength="30"
             required
           />
-          <span class="popup__form-input-error popup__form-input-error_type_description"></span>
+          <span
+            class="popup__form-input-error popup__form-input-error_type_card-description"
+          ></span>
           <input
             class="popup__form-input popup-add__form-input_card_image"
             type="url"
-            id="inputDescription"
-            name="description"
+            id="inputCardLink"
+            name="url"
             autocomplete="off"
             placeholder="Ссылка на картинку"
             required
