@@ -46,21 +46,19 @@ const toggleButtonState = (submitButton, submitButtonDisabled, formInputList) =>
 };
 
 const setEventListeners = (
-  formList,
-  formInputlist,
+  formElement,
+  formInputlistSelector,
   errorClassTemplate,
   errorClassActive,
   submitButtonDisabled,
-  submitButton
+  submitButtonSelector
 ) => {
-  formList.forEach(form => {
-    form.addEventListener('submit', evt => {
-      evt.preventDefault();
-      console.log('Submit is listened!');
-    });
-  });
+const formInputList = formElement.querySelectorAll(formInputlistSelector;)
 
-  formInputlist.forEach(input => {
+const submitButton = formElement.querySelector(submitButtonSelector);
+toggleButtonState(submitButton, submitButtonDisabled, formInputList);
+
+formInputList.forEach(input => {
     input.addEventListener('input', function (evt) {
       console.log('Input is listened!');
       toggleButtonState(submitButton, submitButtonDisabled, formInputlist);
@@ -77,19 +75,32 @@ const setEventListeners = (
 
 const enableFormEditValidation = config => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach(formElement => {
+    formElement.addEventListener('submit', evt => {
+      evt.preventDefault();
+      console.log('Submit is listened!');
+      setEventListeners(
+        formElement,
+        config.inputListSelector,
+        config.errorClassTemplate,
+        config.errorClassActive,
+        config.submitButtonDisabled,
+        config.submitButtonSelector
+      );
+    });
+  });
 
-  const formInputList = Array.from(document.querySelectorAll(config.inputListSelector));
-  console.log(formInputList);
-  const submitButton = document.querySelector(config.submitButtonSelector);
+  // const formInputList = Array.from(document.querySelectorAll(config.inputListSelector));
+  // console.log(formInputList);
 
-  setEventListeners(
-    formList,
-    formInputList,
-    config.errorClassTemplate,
-    config.errorClassActive,
-    config.submitButtonDisabled,
-    submitButton
-  );
+  // setEventListeners(
+  //   formList,
+  //   formInputList,
+  //   config.errorClassTemplate,
+  //   config.errorClassActive,
+  //   config.submitButtonDisabled,
+  //   submitButton
+  // );
 };
 
 enableFormEditValidation({
