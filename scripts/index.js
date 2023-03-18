@@ -64,9 +64,12 @@ function submitAddCardForm(evt) {
   addCard(card);
   closePopup(popupAddContainer);
   formAddCard.reset();
+  const addCardSaveButton = formAddCard.querySelector('.popup__form-save');
+  addCardSaveButton.classList.add('popup__form-save_type_disabled');
+  addCardSaveButton.disabled = true;
 }
 
-const popupCloseOnClick = popupContainers => {
+const closePopupOnClick = popupContainers => {
   popupContainers.forEach(container => {
     container.addEventListener('click', function (evt) {
       if (evt.target === container) {
@@ -76,7 +79,7 @@ const popupCloseOnClick = popupContainers => {
   });
 };
 
-const popupCloseOnEscape = evt => {
+const closePopupOnEscape = evt => {
   if (evt.key === 'Escape') {
     const activePopup = document.querySelector('.popup_opened');
     closePopup(activePopup);
@@ -85,13 +88,12 @@ const popupCloseOnEscape = evt => {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.removeEventListener('keydown', popupCloseOnEscape);
+  document.removeEventListener('keydown', closePopupOnEscape);
 }
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
-  document.addEventListener('keydown', popupCloseOnEscape);
-  // popup.addEventListener('click', console.log('Clicked'));
+  document.addEventListener('keydown', closePopupOnEscape);
 }
 
 initialCards.forEach(addCard);
@@ -122,4 +124,4 @@ formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 formAddCard.addEventListener('submit', submitAddCardForm);
 
-popupCloseOnClick(popupContainers);
+closePopupOnClick(popupContainers);
