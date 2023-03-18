@@ -19,30 +19,24 @@ const enableButton = (submitButton, submitButtonDisabled) => {
 
 const checkInputValidity = (formInput, errorClassTemplate, errorClassActive) => {
   const errorTextElement = document.querySelector(`${errorClassTemplate}${formInput.name}`);
-  console.log(errorTextElement);
+
   if (!formInput.validity.valid) {
     showError(errorTextElement, formInput.validationMessage, errorClassActive);
-    console.log('Invalid input');
   } else {
     hideError(errorTextElement, errorClassActive);
   }
 };
 
 const hasInvalidInput = inputList => {
-  console.log(Array.from(inputList).every(input => input.validity.valid));
-  console.log(Array.from(inputList).some(input => !input.validity.valid));
   return Array.from(inputList).some(input => !input.validity.valid);
 };
 
 const toggleButtonState = (submitButton, submitButtonDisabled, formInputList) => {
   if (!hasInvalidInput(formInputList)) {
     enableButton(submitButton, submitButtonDisabled);
-    console.log('Enabled');
   } else {
     disableButton(submitButton, submitButtonDisabled);
-    console.log('Disabled');
   }
-  console.log(submitButton);
 };
 
 const setEventListeners = (
@@ -53,54 +47,41 @@ const setEventListeners = (
   submitButtonDisabled,
   submitButtonSelector
 ) => {
-const formInputList = formElement.querySelectorAll(formInputlistSelector;)
+  const formInputList = formElement.querySelectorAll(formInputlistSelector);
 
-const submitButton = formElement.querySelector(submitButtonSelector);
-toggleButtonState(submitButton, submitButtonDisabled, formInputList);
+  const submitButton = formElement.querySelector(submitButtonSelector);
+  toggleButtonState(submitButton, submitButtonDisabled, formInputList);
 
-formInputList.forEach(input => {
+  formInputList.forEach(input => {
     input.addEventListener('input', function (evt) {
-      console.log('Input is listened!');
-      toggleButtonState(submitButton, submitButtonDisabled, formInputlist);
-      checkInputValidity(
-        evt.target,
-        errorClassTemplate,
-        errorClassActive,
-        submitButtonDisabled,
-        submitButton
-      );
+      toggleButtonState(submitButton, submitButtonDisabled, formInputList);
+      checkInputValidity(evt.target, errorClassTemplate, errorClassActive);
     });
   });
 };
 
+// const clearInputErrorMessages = errorClassActive => {
+//   const errorInputList = document.querySelectorAll(`.${errorClassActive}`);
+//   console.log(errorInputList);
+//   errorInputList.forEach((input, errorClassActive) => {
+//     hideError(input, errorClassActive);
+//     console.log('Error hide');
+//   });
+// };
+
 const enableFormEditValidation = config => {
   const formList = Array.from(document.querySelectorAll(config.formSelector));
+
   formList.forEach(formElement => {
-    formElement.addEventListener('submit', evt => {
-      evt.preventDefault();
-      console.log('Submit is listened!');
-      setEventListeners(
-        formElement,
-        config.inputListSelector,
-        config.errorClassTemplate,
-        config.errorClassActive,
-        config.submitButtonDisabled,
-        config.submitButtonSelector
-      );
-    });
+    setEventListeners(
+      formElement,
+      config.inputListSelector,
+      config.errorClassTemplate,
+      config.errorClassActive,
+      config.submitButtonDisabled,
+      config.submitButtonSelector
+    );
   });
-
-  // const formInputList = Array.from(document.querySelectorAll(config.inputListSelector));
-  // console.log(formInputList);
-
-  // setEventListeners(
-  //   formList,
-  //   formInputList,
-  //   config.errorClassTemplate,
-  //   config.errorClassActive,
-  //   config.submitButtonDisabled,
-  //   submitButton
-  // );
 };
 
 enableFormEditValidation({

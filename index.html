@@ -54,7 +54,7 @@
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
     <div class="popup popup_edit-profile">
-      <div class="popup__container">
+      <div class="popup__container popup_overlay">
         <button class="popup__close button-hover" type="button"></button>
         <form class="popup__form form" method="get" name="editform" id="editProfileForm" novalidate>
           <h2 class="popup__form-title">Редактировать профиль</h2>
@@ -88,13 +88,13 @@
       </div>
     </div>
     <div class="popup popup-add">
-      <div class="popup-add__container">
+      <div class="popup-add__container popup_overlay">
         <button class="popup-add__close button-hover" type="button"></button>
         <form class="popup-add__form form" method="get" name="editform">
           <h2 class="popup-add__form-title">Новое место</h2>
 
           <input
-            class="popup__form-input1 popup-add__form-input_card_name"
+            class="popup__form-input popup-add__form-input_card_name"
             type="text"
             id="inputCardName"
             name="card-description"
@@ -108,7 +108,7 @@
             class="popup__form-input-error popup__form-input-error_type_card-description"
           ></span>
           <input
-            class="popup__form-input1 popup-add__form-input_card_image"
+            class="popup__form-input popup-add__form-input_card_image"
             type="url"
             id="inputCardLink"
             name="url"
@@ -123,7 +123,7 @@
     </div>
 
     <div class="popup popup-image">
-      <div class="popup-image__container">
+      <div class="popup-image__container popup_overlay">
         <img class="popup-image__picture" />
         <figcaption class="popup-image__caption"></figcaption>
         <button class="popup-image__close button-hover" type="button"></button>
