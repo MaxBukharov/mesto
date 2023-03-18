@@ -109,18 +109,6 @@ buttonOpenAddCardForm.addEventListener('click', function () {
   openPopup(popupAddContainer);
 });
 
-// buttonCloseImagePopup.addEventListener('click', function () {
-//   closePopup(imagePopup);
-// });
-
-// buttonCloseEditProfilePopup.addEventListener('click', function () {
-//   closePopup(popupEditContainer);
-// });
-
-// buttonCloseAddCardPopup.addEventListener('click', function () {
-//   closePopup(popupAddContainer);
-// });
-
 formEditProfile.addEventListener('submit', submitEditProfileForm);
 
 formAddCard.addEventListener('submit', submitAddCardForm);
