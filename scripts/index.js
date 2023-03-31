@@ -14,6 +14,9 @@ const buttonOpenAddCardForm = document.querySelector('.profile__add-button');
 const cardTemplate = document.querySelector('#cardTemplate').content;
 const cardsGallery = document.querySelector('.elements');
 const closeButtons = document.querySelectorAll('.popup__close');
+const imagePopup = document.querySelector('.popup-image');
+const bigImage = imagePopup.querySelector('.popup-image__picture');
+const imageCaption = imagePopup.querySelector('.popup-image__caption');
 const config = {
   inputListSelector: '.popup__form-input',
   errorElementSelector: '.popup__form-input-error',
@@ -112,3 +115,5 @@ closeButtons.forEach(button => {
 });
 
 closePopupOnClick(popupContainers);
+
+export { openPopup, imagePopup, bigImage, imageCaption };

@@ -1,4 +1,6 @@
-export class Card {
+import { openPopup, imagePopup, bigImage, imageCaption } from './index.js';
+
+class Card {
   constructor(name, image, alt, template) {
     this._name = name;
     this._image = image;
@@ -34,10 +36,7 @@ export class Card {
   }
 
   _openBigImage() {
-    const imagePopup = document.querySelector('.popup-image');
-    const bigImage = imagePopup.querySelector('.popup-image__picture');
-    const imageCaption = imagePopup.querySelector('.popup-image__caption');
-    imagePopup.classList.add('popup_opened');
+    openPopup(imagePopup);
     bigImage.setAttribute('src', this._image);
     imageCaption.textContent = this._name;
     imageCaption.setAttribute('alt', this._alt);
@@ -52,3 +51,5 @@ export class Card {
     return this._element;
   }
 }
+
+export { Card };
