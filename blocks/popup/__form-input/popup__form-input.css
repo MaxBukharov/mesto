@@ -11,3 +11,7 @@
   padding: 0 0 8px;
   color: #000000;
 }
+
+.popup__form-input:focus {
+  outline: none;
+}
