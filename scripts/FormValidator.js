@@ -52,6 +52,14 @@ export class FormValidator {
     }
   }
 
+  resetValidation() {
+    console.log('Reset');
+    this._toggleButtonState();
+    this._formInputList.forEach(inputElement => {
+      this._hideError(inputElement);
+    });
+  }
+
   _resetErrorElements() {
     const errors = Array.from(document.querySelectorAll(this._errorElement));
     errors.forEach(error => {

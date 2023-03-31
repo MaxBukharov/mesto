@@ -17,6 +17,7 @@ const closeButtons = document.querySelectorAll('.popup__close');
 const imagePopup = document.querySelector('.popup-image');
 const bigImage = imagePopup.querySelector('.popup-image__picture');
 const imageCaption = imagePopup.querySelector('.popup-image__caption');
+const popupForms = Array.from(document.querySelectorAll('.form'));
 const config = {
   inputListSelector: '.popup__form-input',
   errorElementSelector: '.popup__form-input-error',
@@ -30,10 +31,37 @@ import { initialCards } from './constants.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
-initialCards.forEach(item => {
-  const card = new Card(item.name, item.src, item.alt, cardTemplate);
+function handleCardClick(name, link) {
+  bigImage.setAttribute('src', link);
+  bigImage.setAttribute('alt', name);
+  imageCaption.textContent = name;
+  openPopup(imagePopup);
+}
+
+const createInitialCard = item => {
+  const card = new Card(item.name, item.src, item.alt, cardTemplate, handleCardClick);
   const initialCardElement = card.generateCard();
-  cardsGallery.prepend(initialCardElement);
+  return initialCardElement;
+};
+
+const createNewCard = (name, link) => {
+  const card = new Card(name, link, name, cardTemplate, handleCardClick);
+  const newCardElement = card.generateCard();
+  return newCardElement;
+};
+
+const enableFormValidation = (config, form) => {
+  const validator = new FormValidator(config, form);
+  validator.enableValidation();
+  validator.resetValidation();
+};
+
+popupForms.forEach(form => {
+  enableFormValidation(config, form);
+});
+
+initialCards.forEach(item => {
+  cardsGallery.prepend(createInitialCard(item));
 });
 
 function submitEditProfileForm(evt) {
@@ -45,19 +73,9 @@ function submitEditProfileForm(evt) {
 
 function submitAddCardForm(evt) {
   evt.preventDefault();
-  const card = new Card(
-    popupCardName.value,
-    popupCardImage.value,
-    popupCardName.value,
-    cardTemplate
-  );
-  const newCardElement = card.generateCard();
-  cardsGallery.prepend(newCardElement);
+  cardsGallery.prepend(createNewCard(popupCardName.value, popupCardImage.value));
   closePopup(popupAddContainer);
   formAddCard.reset();
-  const addCardSaveButton = formAddCard.querySelector('.popup__form-save');
-  addCardSaveButton.classList.add('popup__form-save_type_disabled');
-  addCardSaveButton.disabled = true;
 }
 
 const closePopupOnClick = popupContainers => {
@@ -91,16 +109,10 @@ buttonOpenEditProfileForm.addEventListener('click', function () {
   openPopup(popupEditContainer);
   popupName.value = profileName.textContent;
   popupDescription.value = profileDescription.textContent;
-  const form = popupEditContainer.querySelector('.form');
-  const validator = new FormValidator(config, form);
-  validator.enableValidation();
 });
 
 buttonOpenAddCardForm.addEventListener('click', function () {
   openPopup(popupAddContainer);
-  const form = popupAddContainer.querySelector('.form');
-  const validator = new FormValidator(config, form);
-  validator.enableValidation();
 });
 
 formEditProfile.addEventListener('submit', submitEditProfileForm);
@@ -115,5 +127,3 @@ closeButtons.forEach(button => {
 });
 
 closePopupOnClick(popupContainers);
-
-export { openPopup, imagePopup, bigImage, imageCaption };
