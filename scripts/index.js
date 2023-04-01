@@ -17,14 +17,16 @@ const closeButtons = document.querySelectorAll('.popup__close');
 const imagePopup = document.querySelector('.popup-image');
 const bigImage = imagePopup.querySelector('.popup-image__picture');
 const imageCaption = imagePopup.querySelector('.popup-image__caption');
-const popupForms = Array.from(document.querySelectorAll('.form'));
+const profileForm = document.querySelector('.popup__form');
+const addCardForm = document.querySelector('.popup-add__form');
 const config = {
   inputListSelector: '.popup__form-input',
   errorElementSelector: '.popup__form-input-error',
   errorClassTemplate: '.popup__form-input-error_type_',
   errorClassActive: 'popup__form-input-error_type_active',
   submitButtonSelector: '.popup__button',
-  submitButtonDisabled: 'popup__form-save_type_disabled'
+  submitButtonDisabled: 'popup__form-save_type_disabled',
+  formSelector: '.form'
 };
 
 import { initialCards } from './constants.js';
@@ -50,15 +52,19 @@ const createNewCard = (name, link) => {
   return newCardElement;
 };
 
-const enableFormValidation = (config, form) => {
-  const validator = new FormValidator(config, form);
-  validator.enableValidation();
-  validator.resetValidation();
+const formValidators = {};
+
+const enableValidation = config => {
+  const formList = Array.from(document.querySelectorAll(config.formSelector));
+  formList.forEach(formElement => {
+    const validator = new FormValidator(config, formElement);
+    const formName = formElement.getAttribute('name');
+    formValidators[formName] = validator;
+    validator.enableValidation();
+  });
 };
 
-popupForms.forEach(form => {
-  enableFormValidation(config, form);
-});
+enableValidation(config);
 
 initialCards.forEach(item => {
   cardsGallery.prepend(createInitialCard(item));
@@ -109,10 +115,12 @@ buttonOpenEditProfileForm.addEventListener('click', function () {
   openPopup(popupEditContainer);
   popupName.value = profileName.textContent;
   popupDescription.value = profileDescription.textContent;
+  formValidators[profileForm.getAttribute('name')].resetValidation();
 });
 
 buttonOpenAddCardForm.addEventListener('click', function () {
   openPopup(popupAddContainer);
+  formValidators[addCardForm.getAttribute('name')].resetValidation();
 });
 
 formEditProfile.addEventListener('submit', submitEditProfileForm);
