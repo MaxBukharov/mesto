@@ -30,3 +30,6 @@ export const initialCards = [
     alt: 'Остров'
   }
 ];
+
+export const containerSelector = '.elements';
+export const popupSelector = '.popup';
