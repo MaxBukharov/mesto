@@ -36,14 +36,13 @@ import Section from './Section.js';
 import { containerSelector } from './constants.js';
 import Popup from './Popup.js';
 import { popupSelector } from './constants.js';
+import PopupWithImage from './PopupWithImage.js';
 
 
 
 function handleCardClick(name, link) {
-  bigImage.setAttribute('src', link);
-  bigImage.setAttribute('alt', name);
-  imageCaption.textContent = name;
-  openPopup(imagePopup);
+  const popupWithImage = new PopupWithImage (".popup-image__container", link, name)
+  popupWithImage.open();
 }
 
 const createCardsSection =  new Section ({items: initialCards, renderer: (item) => {
